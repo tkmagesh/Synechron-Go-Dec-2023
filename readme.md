@@ -57,3 +57,21 @@
 ![image concurrency-os-thread](./images/concurrency-os-thread.png)
 ### Concurrency Model (Using Goroutines)
 ![image concurrency-goroutine](./images//concurrency-goroutines.png)
+
+## Go Program Basics
+- To run a go file
+    > go run [file_name.go]
+- To create a build
+    - > go build [file_name.go]
+    - > go build -o [binary_name] [file_name.go]
+## Cross Compilation
+- To get the list of env variables used by the go tool
+    - > go env
+    - > go env [var_1] [var_2] ....
+- Environment variables for cross compilation (GOOS, GOARCH)
+- To get the list of support platforms (valid values for GOOS & GOARCH)
+    > go tool dist list
+- To change the environment variables
+    - go env -w [var_1]=[value_1] [var_2]=[value_2]
+    - ex:
+        - > go env -w GOOS=windows GOARCH=386
