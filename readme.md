@@ -75,3 +75,37 @@
     - go env -w [var_1]=[value_1] [var_2]=[value_2]
     - ex:
         - > go env -w GOOS=windows GOARCH=386
+## Data Types
+- string
+- bool
+- integer types
+    - int8
+    - int16
+    - int32
+    - int64
+    - int
+- unsigned integer types
+    - uint8
+    - uint16
+    - uint32
+    - uint64
+    - uint
+- floating type
+    - float32
+    - float64
+- complex types
+    - complex64 (real[float32] + imaginary[float32])
+    - complex128 (real[float64] + imaginary[float64])
+- type alias
+    - byte (alias for uint8)
+    - rune (alias for int32) (unicode code point)
+
+## Variables
+    - declaration using "var" keyword or ":="
+    - Function Scope
+        - Cannot have unused variables
+        - Can use ":="
+    - Package Scope
+        - Can have unused variables
+        - Cannot use ":="
+
