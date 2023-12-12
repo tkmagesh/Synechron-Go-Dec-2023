@@ -40,10 +40,19 @@
 - Close to hardware
     - Application builds targeting each OS
     - No VM (JVM, CLR)
+    - No JIT
     - Tooling support for cross compilation
 - Managed Concurrency
     - Concurrency is NOT parallelism
     - Ability to have more than one execution path
+    - Concurrent Operations are represented as Goroutines
+    - Goroutines are cheap (4 KB / goroutine)
+    - Builtin scheduler to schedule & manage the goroutines
+    - Support for concurrency built in the language
+        - go keyword, channel (data type), channel operator ( <- ), range & select-case constructs
+    - API support
+        - "sync" packages
+        - "sync/atomic" packages
 ### Concurrency Model (Using OS Threads)
 ![image concurrency-os-thread](./images/concurrency-os-thread.png)
 ### Concurrency Model (Using Goroutines)
