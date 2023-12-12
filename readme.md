@@ -100,12 +100,17 @@
     - byte (alias for uint8)
     - rune (alias for int32) (unicode code point)
 
-## Variables
-    - declaration using "var" keyword or ":="
+## Variables & Constants
+    - variables declared using "var" keyword or ":="
+    - constants declared using "const" keyword
     - Function Scope
         - Cannot have unused variables
         - Can use ":="
+        - Can have unused constants
     - Package Scope
         - Can have unused variables
         - Cannot use ":="
+        - Can have unused constants
+
+## iota (contant values auto generated)
 
