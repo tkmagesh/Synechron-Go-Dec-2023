@@ -14,18 +14,21 @@ import (
 var ErrDivideByZero error = errors.New("divide by zero error")
 
 func main() {
-	multiplier := 100
-	divisor := 0
-	q, r, err := divideClient(multiplier, divisor)
-	if err == ErrDivideByZero {
-		fmt.Println("Do not attempt to divide by zero")
-		return
+	var multiplier, divisor int
+	for {
+		fmt.Scanln(&multiplier, &divisor)
+		q, r, err := divideClient(multiplier, divisor)
+		if err == ErrDivideByZero {
+			fmt.Println("Do not attempt to divide by zero")
+			continue
+		}
+		if err != nil {
+			fmt.Println("something went wrong:", err)
+			continue
+		}
+		fmt.Printf("Dividing %d by %d, quotient = %d and remainder = %d\n", multiplier, divisor, q, r)
+		break
 	}
-	if err != nil {
-		fmt.Println("something went wrong:", err)
-		return
-	}
-	fmt.Printf("Dividing %d by %d, quotient = %d and remainder = %d\n", multiplier, divisor, q, r)
 }
 
 // wrapper to convert the panic into an error
