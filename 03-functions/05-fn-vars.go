@@ -27,29 +27,24 @@ func main() {
 	}
 	msg := getFullNameGreet("Suresh", "Kannan")
 	fmt.Print(msg)
-	/*
 
+	var divide func(int, int) (int, int)
+	divide = func(x, y int) (quotient int, remainder int) {
+		quotient, remainder = x/y, x%y
+		return
+	}
+	q, r := divide(100, 7)
+	fmt.Println(q, r)
 
-		// convert the fullNameGreet, getFullNameGreet & divide into anonymous functions
+	var sum func(...int) int
+	sum = func(nos ...int) int {
+		var result int
+		for i := 0; i < len(nos); i++ {
+			result += nos[i]
+		}
+		return result
+	}
+	sumResult := sum(10, 20, 30, 40, 50)
+	fmt.Println(sumResult)
 
-
-
-
-
-
-		q, r := func(x, y int) (quotient int, remainder int) {
-			quotient, remainder = x/y, x%y
-			return
-		}(100, 7)
-		fmt.Println(q, r)
-
-		sumResult := func(nos ...int) int {
-			var result int
-			for i := 0; i < len(nos); i++ {
-				result += nos[i]
-			}
-			return result
-		}(10, 20, 30, 40, 50)
-		fmt.Println(sumResult)
-	*/
 }
