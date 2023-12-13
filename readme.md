@@ -116,3 +116,4 @@
 
 ## Functions
 - Functions can return more than 1 result
+- Support for variadic functions
