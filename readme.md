@@ -117,3 +117,7 @@
 ## Functions
 - Functions can return more than 1 result
 - Support for variadic functions
+- Anonymous functions
+    - Functions inside other function
+    - Cannot have any name
+    - Has to be immediately invoked
