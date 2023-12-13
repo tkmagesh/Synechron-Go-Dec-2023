@@ -134,3 +134,6 @@
 - Creation
     - errors.New()
     - fmt.Errorf()
+
+## Deferred Functions
+- Functions whose execution is postponed until the current function execution is completed and returned
