@@ -142,3 +142,11 @@
 - Panic - The state of the application where the applcation execution cannot proceed any further
 - Use panic() function to create a panic
 - Use recover() function to get the error that resulted in the panic
+
+## Collections
+### Arrays
+- Fixed sized typed collection
+- len()
+- Iterate using the "range" construct
+### Slices
+### Map
