@@ -137,3 +137,8 @@
 
 ## Deferred Functions
 - Functions whose execution is postponed until the current function execution is completed and returned
+
+## Panic & Recovery
+- Panic - The state of the application where the applcation execution cannot proceed any further
+- Use panic() function to create a panic
+- Use recover() function to get the error that resulted in the panic
