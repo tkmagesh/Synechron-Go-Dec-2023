@@ -28,4 +28,13 @@ func main() {
 		return
 	}(100, 7)
 	fmt.Println(q, r)
+
+	sumResult := func(nos ...int) int {
+		var result int
+		for i := 0; i < len(nos); i++ {
+			result += nos[i]
+		}
+		return result
+	}(10, 20, 30, 40, 50)
+	fmt.Println(sumResult)
 }
