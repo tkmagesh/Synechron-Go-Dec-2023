@@ -114,3 +114,5 @@
 
 ## iota (contant values auto generated)
 
+## Functions
+- Functions can return more than 1 result

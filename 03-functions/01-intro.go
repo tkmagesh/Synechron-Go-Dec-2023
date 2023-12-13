@@ -9,7 +9,7 @@ func main() {
 	msg := getFullNameGreet("Suresh", "Kannan")
 	fmt.Print(msg)
 
-	// fmt.Println(divide(100, 7))
+	fmt.Println(divide(100, 7))
 
 	/*
 		q, r := divide(100, 7)
@@ -18,11 +18,11 @@ func main() {
 
 	// Using ONLY the quotient
 	// Use _ to receive the result from a function and ignore the result
-	q, _ := divide(100, 7)
-	fmt.Printf("Dividing 100 by 7, quotient = %d\n", q)
+	/*
+		q, _ := divide(100, 7)
+		fmt.Printf("Dividing 100 by 7, quotient = %d\n", q)
+	*/
 
-	// Print only the remainder of dividing 100 by 9
-	?
 }
 
 /* with no arguments & no return results */
@@ -52,8 +52,20 @@ func getFullNameGreet(firstName, lastName string) string {
 }
 
 /* with 2 arguments & 2 return results */
+/*
 func divide(x, y int) (int, int) {
 	quotient := x / y
 	remainder := x % y
 	return quotient, remainder
+}
+*/
+
+// using named results
+func divide(x, y int) (quotient int, remainder int) {
+	/*
+		quotient = x / y
+		remainder = x % y
+	*/
+	quotient, remainder = x/y, x%y
+	return
 }
