@@ -121,3 +121,7 @@
     - Functions inside other function
     - Cannot have any name
     - Has to be immediately invoked
+- Higher Order Functions
+    - Assign a function to a variable
+    - Pass functions as arguments to other functions
+    - Return functions as return values from other functions
