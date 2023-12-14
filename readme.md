@@ -156,3 +156,4 @@
 - cap() => memory initialized + memory allocated
 ![image slices](./images/slices.png)
 ### Map
+- Typed collection of key/value pairs
