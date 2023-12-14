@@ -36,7 +36,21 @@ func main() {
 	fmt.Println("nos[2:] : ", nos[2:])
 	fmt.Println("nos[:5] : ", nos[:5])
 
-	nos2 := nos
+	nos2 := nos // not creating a copy
 	nos2[0] = 9999
 	fmt.Printf("nos : %v, nos2 : %v\n", nos, nos2)
+
+	sort(nos)
+	fmt.Println(nos)
+	fmt.Println(nos2)
+}
+
+func sort(list []int) {
+	for i := 0; i < len(list)-1; i++ {
+		for j := i + 1; j < len(list); j++ {
+			if list[i] > list[j] {
+				list[i], list[j] = list[j], list[i]
+			}
+		}
+	}
 }

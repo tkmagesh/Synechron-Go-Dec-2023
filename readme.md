@@ -150,6 +150,7 @@
 - Iterate using the "range" construct
 ### Slices
 - Varying sized typed collection
+- Essentialy a pointer to an underlying array
 - len()
 - append() to add new items to the slice
 - cap() => memory initialized + memory allocated
