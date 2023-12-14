@@ -28,6 +28,12 @@ func main() {
 		fmt.Printf("productRanks[%q] = %d\n", key, val)
 	}
 
+	productNames := make([]string, 0, 0)
+	for key, _ := range productRanks {
+		productNames = append(productNames, key)
+	}
+	fmt.Println("productNames :", productNames)
+
 	// removing an item
 	// keyToRemove := "pencil" //existing product
 	keyToRemove := "stappler" //non-existing product
