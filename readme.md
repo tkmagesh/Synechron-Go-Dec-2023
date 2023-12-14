@@ -149,4 +149,9 @@
 - len()
 - Iterate using the "range" construct
 ### Slices
+- Varying sized typed collection
+- len()
+- append() to add new items to the slice
+- cap() => memory initialized + memory allocated
+![image slices](./images/slices.png)
 ### Map

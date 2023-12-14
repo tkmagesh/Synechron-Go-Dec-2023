@@ -34,7 +34,7 @@ func main() {
 
 	nos2 := &nos
 	// fmt.Println((*nos2)[0])
-	fmt.Println(nos2[0])
+	fmt.Println(nos2[0]) // no need to dereference the array pointer to access the elements
 
 	fmt.Printf("Before sorting, nos : %v\n", nos)
 	sort(&nos)
