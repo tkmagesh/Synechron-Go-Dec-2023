@@ -200,4 +200,4 @@
     - To install a go module as a binary (command line tool)
         > go install [module_name]
         - by default downloaded & build created in the $GOPATH/bin folder
-    - Reference: https://go.dev/ref/mod
+- Reference: https://go.dev/ref/mod
