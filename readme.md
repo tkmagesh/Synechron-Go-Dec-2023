@@ -157,3 +157,29 @@
 ![image slices](./images/slices.png)
 ### Map
 - Typed collection of key/value pairs
+
+## Modules & Packages
+- Modules
+    - Any code that need to be versioned & deployed together
+    - Typically created for a whole application
+    - folder with "go.mod" file
+    - go.mod 
+        - manifest for the application/module
+        - contains
+            - module name
+            - Go runtime version 
+            - dependencies info
+        - how to create?
+            - > go mod init [module_name]
+            - module_name = advisable to have the complete repo path as the module name
+    - to run a module
+        - > go run .
+    - to build a module
+        - > go build .
+        - > go build -o [binary_name] .
+- Package
+    - internal organization of a module
+    - Typically folders
+    - All the code in all the files under a package folder are considered to be belonging to that package
+    - Types with name starting with Uppercase are public to the package
+    - Types with name starting with lowercase are private to the package
