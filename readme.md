@@ -183,3 +183,21 @@
     - All the code in all the files under a package folder are considered to be belonging to that package
     - Types with name starting with Uppercase are public to the package
     - Types with name starting with lowercase are private to the package
+- 3rd party modules
+    - install
+        > go get [module_name]
+        - by default downloaded in the $GOPATH/pkg/mod folder
+    - To update 3rd party module references in the go.mod file based on their usage in the application code
+        > go mod tidy
+    - To download the dependencies documented in the go.mod file
+        > go mod download
+    - To display the list of dependencies
+        > go list -m "all"
+    - To display the dependency graph
+        > go mod graph
+    - To display the dependency graph of one module
+        > go mod why [module_name]
+    - To install a go module as a binary (command line tool)
+        > go install [module_name]
+        - by default downloaded & build created in the $GOPATH/bin folder
+    - Reference: https://go.dev/ref/mod
