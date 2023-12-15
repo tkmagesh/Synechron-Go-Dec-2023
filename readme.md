@@ -206,3 +206,8 @@
 ### WaitGroup
 - Semaphore based counter
 - Can block the execution of the current function until the counter becomes 0
+### Race Conditions
+- Use "-race" for detecting race conditions (not foolproof)
+    - > go run -race [file_name.go]
+    - > go build -race [file_name.go]
+- DO NOT use the "-race" with production builds

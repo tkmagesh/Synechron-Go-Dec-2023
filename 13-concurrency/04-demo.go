@@ -11,9 +11,13 @@ import (
 
 func main() {
 	wg := &sync.WaitGroup{}
+
 	wg.Add(1) // increment the wg counter by 1
 	go f1(wg)
-	f2()
+
+	wg.Add(1) // increment the wg counter by 1
+	go f2(wg)
+
 	wg.Wait() // block until the wg counter becomes 0
 }
 
@@ -24,6 +28,7 @@ func f1(wg *sync.WaitGroup) {
 	wg.Done() // decrement the wg counter by 1
 }
 
-func f2() {
+func f2(wg *sync.WaitGroup) {
+	defer wg.Done()
 	fmt.Println("f2 invoked")
 }
