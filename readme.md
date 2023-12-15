@@ -211,3 +211,22 @@
     - > go run -race [file_name.go]
     - > go build -race [file_name.go]
 - DO NOT use the "-race" with production builds
+### Channels
+- data types used for communicating between goroutines
+- declaration
+```
+var ch chan int
+```
+- Initialization
+```
+ch = make(chan int)
+```
+- Send and receive data using the channel operator ( <- )
+```
+// send operation
+ch <- 100
+```
+```
+// receive operation
+data := <- ch
+```
