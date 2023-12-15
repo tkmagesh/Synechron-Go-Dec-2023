@@ -14,19 +14,22 @@ import (
 
 // consumer
 func main() {
-	ch := make(chan int)
-	go genFib(ch)
+	ch := genFib()
 	for no := range ch {
 		fmt.Println(no)
 	}
 }
 
 // producer
-func genFib(ch chan int) {
-	for x, y, count, i := 0, 1, rand.Intn(20), 0; i < count; i++ {
-		ch <- x
-		time.Sleep(500 * time.Millisecond)
-		x, y = y, x+y
-	}
-	close(ch)
+func genFib() <-chan int {
+	ch := make(chan int)
+	go func() {
+		for x, y, count, i := 0, 1, rand.Intn(20), 0; i < count; i++ {
+			ch <- x
+			time.Sleep(500 * time.Millisecond)
+			x, y = y, x+y
+		}
+		close(ch)
+	}()
+	return ch
 }
