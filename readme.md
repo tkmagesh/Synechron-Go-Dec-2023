@@ -201,3 +201,8 @@
         > go install [module_name]
         - by default downloaded & build created in the $GOPATH/bin folder
 - Reference: https://go.dev/ref/mod
+
+## Concurrency
+### WaitGroup
+- Semaphore based counter
+- Can block the execution of the current function until the counter becomes 0
