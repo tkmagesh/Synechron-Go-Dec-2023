@@ -18,27 +18,39 @@ import (
 
 // consumer
 func main() {
-	wg := sync.WaitGroup{}
+	dataCh := mergeData()
+	for data := range dataCh {
+		fmt.Println(data)
+	}
+	fmt.Println("Done")
+}
 
-	wg.Add(1)
+func mergeData() <-chan int {
+	resultCh := make(chan int)
 	go func() {
-		fibCh := genFib()
-		for no := range fibCh {
-			fmt.Println(no)
-		}
-		wg.Done()
-	}()
+		wg := sync.WaitGroup{}
 
-	wg.Add(1)
-	go func() {
-		wordCh := genWords()
-		for word := range wordCh {
-			fmt.Println(word)
-		}
-		wg.Done()
-	}()
+		wg.Add(1)
+		go func() {
+			fibCh := genFib()
+			for no := range fibCh {
+				resultCh <- no
+			}
+			wg.Done()
+		}()
 
-	wg.Wait()
+		wg.Add(1)
+		go func() {
+			wordLenCh := genWordLengths()
+			for wordLen := range wordLenCh {
+				resultCh <- wordLen
+			}
+			wg.Done()
+		}()
+		wg.Wait()
+		close(resultCh)
+	}()
+	return resultCh
 }
 
 // producer
@@ -55,13 +67,13 @@ func genFib() <-chan int {
 	return ch
 }
 
-func genWords() <-chan string {
+func genWordLengths() <-chan int {
 	str := "Lorem sint eiusmod veniam ullamco incididunt consequat et id sunt consectetur ad elit Dolore quis aute proident pariatur duis nisi aliquip cupidatat Lorem dolor Magna ea sunt sunt deserunt magna Cupidatat occaecat cupidatat excepteur culpa ipsum excepteur consectetur laboris duis id aute voluptate Lorem Voluptate laboris culpa deserunt cupidatat est esse ad ipsum Consectetur sunt enim nostrud mollit sint Ipsum fugiat incididunt voluptate reprehenderitConsequat adipisicing reprehenderit voluptate enim nisi ipsum in veniam Quis aute ea ex sit cupidatat consectetur consequat non consectetur aliqua magna est Excepteur adipisicing et pariatur sint eiusmod duis ipsum Non ad quis amet dolor sunt esse laboris eiusmod ex eiusmod est laborum non Consequat mollit aliqua aliquip duis duis consequat consequat consectetur cupidatat quis laboris nisi adipisicing Dolor incididunt dolor elit anim do eu et cillum duis et est elit Fugiat reprehenderit adipisicing duis laboris labore"
-	ch := make(chan string)
+	ch := make(chan int)
 	go func() {
 		words := strings.Split(str, " ")
 		for _, word := range words {
-			ch <- word
+			ch <- len(word)
 			time.Sleep(300 * time.Millisecond)
 		}
 	}()
