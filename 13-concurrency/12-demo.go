@@ -5,6 +5,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -12,8 +13,14 @@ import (
 
 func main() {
 	fmt.Println("main started")
-	f1()
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+	go func() {
+		f1()
+		wg.Done()
+	}()
 	f2()
+	wg.Wait()
 	fmt.Println("main completed")
 }
 
@@ -25,7 +32,7 @@ func f1() {
 }
 
 func f2() {
-	fmt.Println("f1 started")
+	fmt.Println("f2 started")
 	time.Sleep(3 * time.Second)
-	fmt.Println("f1 completed")
+	fmt.Println("f2 completed")
 }

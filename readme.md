@@ -230,3 +230,10 @@ ch <- 100
 // receive operation
 data := <- ch
 ```
+- Channel Behaviors
+    - Receive operation
+        - ALWAYS a blocking operation
+        - Blocked until some data is sent to the channel
+    - Send Operation
+        - Blocked until a receive operation is initiated
+![image channel behaviors](./images/channel-behaviors.png)
